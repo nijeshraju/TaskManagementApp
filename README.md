@@ -22,3 +22,20 @@ PORT=8080
 ```bash
 npm run dev
 ```
+
+## How to run frontend app
+**Navigate to client and install dependencies**
+```bash
+cd client
+npm install
+```
+
+**Set Up Environment Variables:**
+Create a .env file inside server/ and add the following
+```bash
+BACKEND_URL=http://localhost:8080/api/task
+```
+**run backend server**
+```bash
+npm start
+```

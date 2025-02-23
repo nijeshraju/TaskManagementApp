@@ -47,7 +47,7 @@ export default function DataTable({
           </TableHead>
           <TableBody>
             {tasks.map((task) => (
-              <TableRow key={task._id}>
+              <TableRow key={task.id}>
                 <TableCell>{task.taskName}</TableCell>
                 <TableCell>
                   {task.status ? "Completed" : "Incomplete"}
@@ -63,7 +63,7 @@ export default function DataTable({
                   >
                     <MenuItem
                       onClick={() => {
-                        toggleTaskStatus(selectedTask._id, selectedTask.status);
+                        toggleTaskStatus(selectedTask.id, selectedTask.status);
                         handleMenuClose();
                       }}
                     >
@@ -73,7 +73,7 @@ export default function DataTable({
                     </MenuItem>
                     <MenuItem
                       onClick={() => {
-                        deleteTask(selectedTask._id);
+                        deleteTask(selectedTask.id);
                         handleMenuClose();
                       }}
                     >

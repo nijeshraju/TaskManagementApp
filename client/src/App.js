@@ -68,7 +68,7 @@ const App = () => {
       await axios.put(`${apiUrl}/${id}`, { status: !status });
       setTasks(
         tasks.map((task) =>
-          task._id === id ? { ...task, status: !status } : task,
+          task.id === id ? { ...task, status: !status } : task,
         ),
       );
       setMessage({ text: "Task status updated!", type: "success" });
@@ -82,7 +82,7 @@ const App = () => {
   const deleteTask = async (id) => {
     try {
       await axios.delete(`${apiUrl}/${id}`);
-      setTasks(tasks.filter((task) => task._id !== id));
+      setTasks(tasks.filter((task) => task.id !== id));
       setMessage({ text: "Task deleted successfully!", type: "success" });
     } catch (error) {
       console.error("Error deleting task:", error);

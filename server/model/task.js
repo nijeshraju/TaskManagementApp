@@ -15,4 +15,10 @@ const taskSchema = new mongoose.Schema(
   },
 );
 
+taskSchema.method("toJSON", function () {
+  const { _id, __v, ...object } = this.toObject({ virtuals: true });
+  object.id = _id;
+  return object;
+});
+
 module.exports = mongoose.model("Task", taskSchema);
